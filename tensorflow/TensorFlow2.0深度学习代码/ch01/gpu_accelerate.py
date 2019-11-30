@@ -1,4 +1,3 @@
-import  numpy as np
 import  matplotlib
 from    matplotlib import pyplot as plt
 # Default parameters for plots
@@ -8,13 +7,8 @@ matplotlib.rcParams['figure.figsize'] = [9, 7]
 matplotlib.rcParams['font.family'] = ['STKaiti']
 matplotlib.rcParams['axes.unicode_minus']=False 
 
-
-
 import tensorflow as tf
 import timeit
-
-
-
 
 cpu_data = []
 gpu_data = []
@@ -57,15 +51,15 @@ for n in range(9):
 x = [10**i for i in range(9)]
 cpu_data = [1000*i for i in cpu_data]
 gpu_data = [1000*i for i in gpu_data]
-plt.plot(x, cpu_data, 'C1')
+# plt.plot(x, cpu_data, 'C1')
 plt.plot(x, cpu_data, color='C1', marker='s', label='CPU')
-plt.plot(x, gpu_data,'C0')
+# plt.plot(x, gpu_data,'C0')
 plt.plot(x, gpu_data, color='C0', marker='^', label='GPU')
 
 
 plt.gca().set_xscale('log')
 plt.gca().set_yscale('log')
-plt.ylim([0,100])
+# plt.ylim([0,100])
 plt.xlabel('矩阵大小n:(1xn)@(nx1)')
 plt.ylabel('运算时间(ms)')
 plt.legend()

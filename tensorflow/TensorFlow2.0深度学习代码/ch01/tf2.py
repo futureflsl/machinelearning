@@ -1,7 +1,9 @@
 #%%
+import os
+
 import tensorflow as tf
 assert tf.__version__.startswith('2.')
-
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 # 1.创建输入张量
 a = tf.constant(2.)
 b = tf.constant(4.)

@@ -2,7 +2,7 @@ import tensorflow as tf
 
 # 创建4个张量
 a = tf.constant(1.)
-b = tf.constant(2.)
+b = tf.constant(23.)
 c = tf.constant(3.)
 w = tf.constant(4.)
 
