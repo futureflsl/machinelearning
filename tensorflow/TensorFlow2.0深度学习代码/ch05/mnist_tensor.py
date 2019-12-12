@@ -8,7 +8,6 @@ matplotlib.rcParams['figure.figsize'] = [9, 7]
 matplotlib.rcParams['font.family'] = ['STKaiTi']
 matplotlib.rcParams['axes.unicode_minus']=False 
 import  tensorflow as tf
-from    tensorflow import keras
 from    tensorflow.keras import datasets, layers, optimizers
 import  os
 
@@ -18,6 +17,8 @@ import  os
 
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 print(tf.__version__)
+
+
 
 
 def preprocess(x, y): 
@@ -74,7 +75,7 @@ def main():
     for step, (x,y) in enumerate(train_db):
  
         # [b, 28, 28] => [b, 784]
-        x = tf.reshape(x, (-1, 784))
+        # x = tf.reshape(x, (-1, 784))
 
         with tf.GradientTape() as tape:
 
@@ -139,14 +140,16 @@ def main():
     plt.ylabel('MSE')
     plt.xlabel('Step')
     plt.legend()
-    plt.savefig('train.svg')
+    # plt.savefig('train.svg')
+    plt.show()
 
     plt.figure()
     plt.plot(x, accs, color='C1', marker='s', label='测试')
     plt.ylabel('准确率')
     plt.xlabel('Step')
     plt.legend()
-    plt.savefig('test.svg')
+    # plt.savefig('test.svg')
+    plt.show()
 
 if __name__ == '__main__':
     main()
