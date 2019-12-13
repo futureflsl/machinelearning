@@ -65,9 +65,10 @@ diag_kind="kde")
 #%%
 # 查看训练集的输入X的统计数据
 train_stats = train_dataset.describe()
+print(train_stats.tail())
 train_stats.pop("MPG")
 train_stats = train_stats.transpose()
-train_stats
+print(train_stats.tail())
 
 
 # 移动MPG油耗效能这一列为真实标签Y
@@ -130,7 +131,8 @@ for epoch in range(200):
             print(epoch, step, float(loss))
 
         grads = tape.gradient(loss, model.trainable_variables)
-        optimizer.apply_gradients(zip(grads, model.trainable_variables))
+        zz = zip(grads, model.trainable_variables)
+        optimizer.apply_gradients(zz)
 
     train_mae_losses.append(float(mae_loss))
     out = model(tf.constant(normed_test_data.values))
@@ -147,7 +149,7 @@ plt.legend()
  
 # plt.ylim([0,10])
 plt.legend()
-plt.savefig('auto.svg')
+# plt.savefig('auto.svg')
 plt.show() 
 
 
