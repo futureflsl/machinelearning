@@ -1,11 +1,10 @@
 #%%
 import  tensorflow as tf
-from    tensorflow import keras
 from    tensorflow.keras import datasets, layers, optimizers, Sequential, metrics
 
 #%%
 # 加载预训练网络模型，并去掉最后一层
-resnet = keras.applications.ResNet50(weights='imagenet',include_top=False)
+resnet = tf.keras.applications.ResNet50(weights='imagenet',include_top=False)
 resnet.summary()
 # 测试网络的输出
 x = tf.random.normal([4,224,224,3])
