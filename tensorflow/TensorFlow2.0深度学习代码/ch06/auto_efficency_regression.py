@@ -111,6 +111,10 @@ optimizer = tf.keras.optimizers.RMSprop(0.001)
 train_db = tf.data.Dataset.from_tensor_slices((normed_train_data.values, train_labels.values))
 train_db = train_db.shuffle(100).batch(32)
 
+
+# summary = tf.summary.create_file_writer("log")
+# with summary.as_default():
+#     tf.summary.scalar()
 # # 未训练时测试
 # example_batch = normed_train_data[:10]
 # example_result = model.predict(example_batch)
